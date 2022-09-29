@@ -3,14 +3,14 @@ import time
 
 import pylsl as lsl
 
-from pupil_labs.invisible_lsl_relay import __version__
-from pupil_labs.invisible_lsl_relay.channels import (
+# from pupil_labs.invisible_lsl_relay import __version__
+from channels import (
     pi_event_channels,
     pi_extract_from_sample,
     pi_gaze_channels,
 )
 
-VERSION = __version__
+VERSION = "__version__"
 
 logger = logging.getLogger(__name__)
 
@@ -46,6 +46,7 @@ class PupilInvisibleOutlet:
             logger.error(f"Error extracting from sample: {exc}")
             logger.debug(str(sample))
             return
+        print(sample_to_push)
         self._outlet.push_sample(sample_to_push, timestamp_to_push)
 
 

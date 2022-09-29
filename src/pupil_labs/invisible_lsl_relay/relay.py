@@ -4,7 +4,7 @@ import logging
 from pupil_labs.realtime_api import Device, StatusUpdateNotifier, receive_gaze_data
 from pupil_labs.realtime_api.models import Event, Sensor
 
-from pupil_labs.invisible_lsl_relay import outlets
+import outlets
 
 logger = logging.getLogger(__name__)
 

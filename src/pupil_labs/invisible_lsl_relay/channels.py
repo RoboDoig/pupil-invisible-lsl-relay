@@ -26,21 +26,21 @@ def pi_gaze_channels():
             PiChannel(
                 sample_query=pi_extract_gaze_query(i),
                 channel_information_dict={
-                    'label': "xy"[i],
+                    'label': ["x", "y", "timestamp_unix_seconds"][i],
                     'eye': "both",
-                    'metatype': "Screen" + "XY"[i],
+                    'metatype': "Screen" + "XYT"[i],
                     'unit': "pixels",
                     'coordinate_system': "world",
                 },
             )
-            for i in range(2)
+            for i in range(3)
         ]
     )
     return channels
 
 
 def pi_extract_gaze_query(dim):
-    return lambda gaze: [gaze.x, gaze.y][dim]
+    return lambda gaze: [gaze.x, gaze.y, gaze.timestamp_unix_seconds][dim]
 
 
 def pi_extract_from_sample(value):

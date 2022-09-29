@@ -7,7 +7,7 @@ import click
 from pupil_labs.realtime_api.device import Device
 from pupil_labs.realtime_api.discovery import Network
 
-from pupil_labs.invisible_lsl_relay import relay
+import relay
 
 logger = logging.getLogger(__name__)
 
